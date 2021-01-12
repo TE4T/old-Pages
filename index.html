@@ -1,143 +1,179 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-	<style>
-	img{position: absolute}
-	#div1{background-image: url(村庄2.png);width: 1202.5px;height: 702.5px;background-size:contain;display: none;position: absolute}
-	#div2{opacity: 1;background: #000;width: 1202.5px;height: 702.5px;display: block;position: absolute}
-	#mouse{left: 400px;top: 600px;}
-	#talk{ width: 1140px;height: 160px;position: absolute;left: 8px;background-image: url(框.png);background-size:contain;color: aliceblue;font-size: 27px;padding-left: 60px;padding-top: 42px;top: 502.5px;display: none}
-	#id{font-size: 32px;;color: #66ccff;position: absolute;left: 20px;top: 511px;display: none}
-	</style>
-	<script>
-function $(id){return document.getElementById(id);}		
-		
-var i_1=1;//换图和对话框1
-window.onkeydown = function(ev){//键盘按键
-var oEvent = ev||event
-var oDiv = document.getElementById('mouse')
-if (oEvent.keyCode== 39) {oDiv.style.left = oDiv.offsetLeft + 10 +'px'}
-else if (oEvent.keyCode == 37){oDiv.style.left = oDiv.offsetLeft - 10 +'px'}
-else if (oEvent.keyCode == 38){oDiv.style.top = oDiv.offsetTop -10 +'px'}
-else if (oEvent.keyCode == 40) {oDiv.style.top = oDiv.offsetTop +10 +'px'}
-else if (oEvent.keyCode == 13){
-	if(i_1==0){main()}
-	if(i_1==1){next()}
-}
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧学工</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            width: 100%;
+        }
+        td{
+            border-bottom: 1px solid #E0E0E0 ;
+            line-height: 48px;
+            padding-left: 10px;
+            padding-right: 10px;
+            
+        }
+        .spanLeft{
+            float: left;
+            font-size: 14px;
+            color: #333333;
+        }
+        .spanRight{
+            float: right;
+            font-size: 14px;
+            color: #666666;
+        }
+        .bottomLeft{
+            line-height: 40px;
+            color: #92969C;
+        }
+        
+        #box{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: oldlace;
+            display: none;
 
-function main(){//输入判定点-村庄
-	var x=document.getElementById('mouse').offsetLeft;
-	var y=document.getElementById('mouse').offsetTop;
-	if(x>=174 && x<=204 && y>=147 && y<=177){$("div2").style.display="none";alert("lv")}	if(x>=374 && x<=404 && y>=547 && y<=577){$("div2").style.display="block";i_1=1;alert("huang")}
-}
-
-var index = 1;//第n场战斗1
-var url = "新建文件夹/战斗界面.html?index="+index;
-var t=0	;//换行
-var i=-1;//对话
-function start(){
-	var game = window.location.href.split('?')[1].split('=')[1];
-	if(game==25){i=25;a2()}
-}
-function next(){
-	if(t%4==0){$("talk").innerHTML=""}
-	if(i==-1){$('talk').style.display="block";i+=1;return 0}
-	if(i==0){$('id').style.display='block';
-	$("talk").innerHTML+="那天，人类又回想起了被新型冠状病毒怼在家中无事可干的恐惧--------背景";t+=4;i+=1;return 0}
-	if(i==1){$("talk").innerHTML+="在家宅了几百年...我感觉我整个人都崩溃了<br>";t+=1;i+=1;return 0}
-	if(i==2){$("talk").innerHTML+="每天除了玩游戏就是玩游戏！根本没别的事干！<br>";t+=1;i+=1;return 0}
-	if(i==3){$("talk").innerHTML+="啊啊啊啊我要崩溃了！<br>";t+=1;i+=1;return 0}
-	if(i==4){$("talk").innerHTML+="一想到3月之后就享受不了这种待遇我整个人都不好了呜呜！<br>";t+=1;i+=1;return 0}
-	if(i==5){$("talk").innerHTML+="现在我同时兼职着，舰长、船长、master、阴阳师、医生、指挥官<br>";t+=1;i+=1;return 0}
-	if(i==6){$("talk").innerHTML+="我的肝完全正常！一点问题都没有desu!发际线也很安全！<br>";t+=1;i+=1;return 0}
-	if(i==7){$("talk").innerHTML+="于是---在某天的凌晨5点，我两眼一抹黑，倒下了<br>";t+=1;i+=1;return 0}
-	if(i==8){$("talk").innerHTML+="...<br>";t+=1;i+=1;return 0}
-	if(i==9){$("talk").innerHTML+="......<br>";t+=4;i+=1;return 0}
-	if(i==10){$("talk").innerHTML+=".........<br>";t+=4;i+=1;return 0}
-	if(i==11){$("talk").innerHTML+=".................<br>";t+=4;i+=1;return 0}
-	if(i==12){$("talk").innerHTML+="唔...";a2();t+=0;i+=1;return 0}
-	if(i==13){$("talk").innerHTML+="我怎么不困了？！我又能接着肝了！<br>";t+=1;i+=1;return 0}
-	if(i==14){$("talk").innerHTML+="诶~~怎么没信号？家里网又断了嘛？...等等这是哪里？！<br>";t+=2;i+=1;return 0}
-	if(i==15){$("talk").innerHTML+="周围全是陌生的环境，而且裙子底下凉飕飕的。...裙子？？<br>";t+=1;i+=1;return 0}
-	if(i==16){$("talk").innerHTML+="该不会....?(试探的寻找了一下40m长刀）<br>";t+=3;i+=1;return 0}
-	if(i==17){$("talk").innerHTML+="？？？？<br>";t+=1;i+=1;return 0}
-	if(i==18){$("talk").innerHTML+="？？？？？？？？？<br>";t+=1;i+=1;return 0}
-	if(i==19){$("talk").innerHTML+="wocccccccccccccccccccc？？？？？<br>";t+=3;i+=1;return 0}
-	if(i==20){$("talk").innerHTML+="（这时一只野生的小野猪出现在了我脚边）<br>";t+=3;i+=1;return 0}
-	if(i==21){$("talk").innerHTML+="是不是你！";t+=0;i+=1;return 0}
-	if(i==22){$("talk").innerHTML+="你为什么要这么对我！！！<br>";t+=1;i+=1;return 0}
-	if(i==23){$("talk").innerHTML+="喵喵喵？？？（猪叫）<br>";$("id").innerHTML="小野猪：";t+=4;i+=1;return 0}
-	if(i==24){$("talk").innerHTML+="吃我一记鎏金挖开雅酷列！!";$("id").innerHTML="cxp是大笨蛋:";
-	setTimeout("a1()",1000);t=0;i+=1;i_1=0;return 0}
-	
-	if(i==25){$("talk").innerHTML+="魔法少女xp酱成功击杀野猪*1！！<br>";t+=1;i+=1;return 0}
-	if(i==26){$("talk").innerHTML+="一点都不值得开心好吧！这个世界又没设定经验值的奖励！<br>";t=4;i+=1;return 0}
-	if(i==27){$("talk").innerHTML+="话说我刚刚战斗是不是用了奇怪的力量...?<br>";t+=1;i+=1;return 0}
-	if(i==28){$("talk").innerHTML+="python?那不是写程序用的吗（捂脸），我竟然拿来打野猪？<br>";t+=1;i+=1;return 0}
-	if(i==29){$("talk").innerHTML+="...大概是变成妹子对我的精神冲击太大了吧？emmmmmmm<br>";t=4;i+=1;return 0}
-	if(i==30){$("talk").innerHTML+="这么说来我这是穿越了是吧？来到了一个奇奇怪怪的世界<br>";t+=1;i+=1;return 0}
-	if(i==31){$("talk").innerHTML+="那么接下来我要干什么好呢..?想方设法回去原来的世界然后给基友爽一下？<br>";t=4;i+=1;return 0}
-	if(i==32){$("talk").innerHTML+="请问阁下可是传说中的大法师？<br>";$("id").innerHTML="村民A：";t+=1;i+=1;return 0}
-	if(i==33){$("talk").innerHTML+="求求你救救我们的村子吧！<br>";t=4;i+=1;return 0}
-	if(i==34){$("talk").innerHTML+="￥%&&&*￥#”*%（一段解释之后）";$("id").innerHTML="";t=4;i+=1;return 0}
-	if(i==35){$("talk").innerHTML+="在这个世界中，只有少数人能成为大法师<br>";$("id").innerHTML="村民A：";t+=1;i+=1;return 0}
-	if(i==36){$("talk").innerHTML+="他们普遍没有头发且掌握着各种各样、千奇百怪的法术。比如说<br>";t=4;i+=1;return 0}
-	if(i==37){$("talk").innerHTML+="Python<br>属于快速施法类型的法术，不需要吟唱（编译）直接从魔法书（解释器）中施放但是威力不高,有人试过搞预吟唱（编译）的邪道来提高威力，但终究 还是比不过传统的吟唱法术。在冒险家中比较流行。<br>";t=4;i+=1;return 0}
-	if(i==38){$("talk").innerHTML+="Java<br>需要携带奇怪的机甲（JVM)才能够使用的吟唱 型法术，效率堪比完全的吟唱型，而且还能使用机甲的 能力来跨世界作战，但能力过分依赖于机甲，甚至会因 为失去机甲而无法使用，军队中被广泛使用。<br>";t=4;i+=1;return 0}
-	if(i==39){$("talk").innerHTML+="C#<br>也是需要携带机甲才能使用军用法术，由Java使用 的敌国开发而成。<br>";t=4;i+=1;return 0}
-	if(i==40){$("talk").innerHTML+="Go<br>属于吟唱型法术，易于学习而且有很强的威力，一 般在军队中使用，缺点是吟唱时间极长。<br>";t=4;i+=1;return 0}
-	if(i==41){$("talk").innerHTML+="C++<br>远古的法术，我们所知的就只有威力强大和难以 学习这两点，能完全掌握的人屈指可数。<br>";t=4;i+=1;return 0}
-	if(i==42){$("talk").innerHTML+="C<br>更为远古的法术，据说世界就是神用这个法术构成 的。<br>";t=4;i+=1;return 0}
-	if(i==43){$("talk").innerHTML+="PHP<br>被正统贵族所睡弃的邪教法术，邪教徒一般以'最好的法术'来称呼它。";t=4;i+=1;return 0}
-	if(i==44){$("talk").innerHTML+="Rust<br>远端的小国使用的吟唱型法术，与Go相似，但是 由于各种原因，没有被采用为军用法术。";t=4;i+=1;return 0}
-	if(i==45){$("talk").innerHTML+="SQL<br>一类特殊的法术，一般用于控制召唤物，而切不同 召唤物的控制法术之间也有不少区别。";t=4;i+=1;return 0}
-	if(i==46){$("talk").innerHTML+="Assembly<br>神之语，只有研究过远古法术的专家才能略懂一二";t=4;i+=1;return 0}
-	if(i==47){$("talk").innerHTML+="相传还有一种至极的法术只由0和1构成，不过那不是人脑所能理解的事物<br>";t=4;i+=1;return 0}
-	if(i==48){$("talk").innerHTML+="我们现在位于村子里，魔法师（秃头师）可以用方向键进行移动，回车为确定<br>";t+=1;i+=1;return 0}
-	if(i==49){$("talk").innerHTML+="也可以用鼠标点击图标进行移动，为何拯救村子刚那一段解释里已经详细说过了<br>";t+=1;i+=1;return 0}
-	if(i==50){$("talk").innerHTML+="魔法师大人开始冒险（享受女装生活）吧！<br>";t=4;i+=1;return 0}
-	if(i==51){$("talk").innerHTML+="凭空出现又凭空消失的村民酱慢走不送哦~";$("id").innerHTML="cxp是大笨蛋：";t=1;i+=1;return 0}
-	if(i==52){$("talk").innerHTML+="<br>那么开始冒险吧！";t=4;i+=1;return 0}
-	if(i==53){$("talk").innerHTML+="绿色图标<img src='绿.png'>&nbsp;&nbsp;&nbsp;&nbsp;是回复点，可以买药，回复生命值<br>";$("id").innerHTML="";t=1;i+=1;return 0}
-	if(i==54){$("talk").innerHTML+="黄色图标<img src='黄.png'>&nbsp;&nbsp;&nbsp;&nbsp;是剧情点，要过完主线剧情才能战斗哦<br>";$("id").innerHTML="";t=4;i+=1;return 0}
-	if(i==55){$("talk").innerHTML+="红色图标<img src='红.png'>&nbsp;&nbsp;&nbsp;&nbsp;是战斗点，进行战斗,玩法为简单的回合制<br>";$("id").innerHTML="";t=1;i+=1;return 0}
-	if(i==56){$("talk").innerHTML+="箭头图标<img src='右.png'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是下个地图，进行地图的切换<br>";$("id").innerHTML="";t=4;i+=1;return 0}
-	if(i==57){$("talk").innerHTML+="<br>";t=4;i+=1;a3();return 0}
-	
-	
-	if(i==58){$("talk").innerHTML+="<br>";t=4;i+=1;return 0}
-	if(i==59){$("talk").innerHTML+="<br>";t=4;i+=1;return 0}
-	
-	
-}
-		function a1(){window.open(url)}
-		function a2(){$('div1').style.display="block";$('div2').style.opacity='0.8';
-					 $('talk').style.display="block";$('id').style.display='block';}
-        function a3(){$('div1').style.display="block";$('div2').style.display='none';
-					 $('talk').style.display="none";$('id').style.display='none';i_1=0;}
-      
-		
-        function green1(){$('talk').style.display="block";$('id').style.display='block';}
-</script>
+        }
+        input{
+            float: right;
+            width: 60%;
+            outline: none;
+            border: none;
+            text-indent: 1em;
+            line-height: 48px;
+            background-color: whitesmoke;
+        }
+    </style>
 </head>
-
 <body>
-	
-	<div id="div1">
-	<img src="绿.png" style="left: 200px;top: 200px;width: 30px;height: 30px">
-	<img src="黄.png" style="left: 400px;top: 600px;width: 30px;height: 30px">
-	
-	
-	<img id="mouse" src="图标.png" alt="mouse">
-	</div>
-	<div id="div2">
-	</div>
-	<div id="talk"></div>
-	<div id="id">cxp是大笨蛋:</div>
-	
-	<script>start()</script>
+    <div id="box">
+        <table cellpadding = "0"; cellspacing = "0">
+            <tr>
+                <td onclick=closeChange()><span class="spanLeft">姓名</span><input id="cName" type="text" placeholder="NASA"></td>
+            </tr>
+            <tr>
+                <td><span class="spanLeft">学号</span><input id="cId" type="text" placeholder="1234567890"></td>
+            </tr>
+            <tr>
+                <td><span class="spanLeft">请假开始/结束时间</span><input id="cStarEndTime" type="text" placeholder="2021-01-16"></td>
+            </tr>
+            <tr>
+                <td><span class="spanLeft">目的地</span><input id="cPlace" type="text" placeholder="广东高明"></td>
+            </tr>
+            <tr>
+                <td><span class="spanLeft">请假理由</span><input id="cPS" type="text" placeholder="与二三好友出校游玩"></td>
+            </tr>
+            <tr>
+                <td><span class="spanLeft">提交/审核时间</span><input id="cPostTime" type="text" placeholder="2021-01-12写早一天"></td>
+            </tr>
+            <tr>
+                <td><button onclick="submit()" style="border: none;width: 100%; height: 100%;">提交</button></td>
+            </tr>
+            </table>
+    </div>
+    <table cellpadding = "0"; cellspacing = "0">
+        <tr>
+            <td onclick="openChange()"><span class="spanLeft">姓名</span><span id="dName" class="spanRight">NASA</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">学号</span><span id="dId" class="spanRight" style="font-size:12px">1931605000</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">院系</span><span class="spanRight">信息工程系</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">专业</span><span class="spanRight">移动应用开发</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">班级</span><span class="spanRight">移动192</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">宿舍楼</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">房间号</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">请假类型</span><span class="spanRight">事假</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">请假开始时间</span><span id="dStarTime" class="spanRight">2021-01-16 06:00</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">请假结束时间</span><span id="dEndTime" class="spanRight">2021-01-16 23:00</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">销假状态</span><span class="spanRight">未销假</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">销假日期</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">当前时间</span><span id="nowTime" class="spanRight">2021-01-16 23:00</span></td>
+        </tr>
+        <tr>
+            <td><span class="spanLeft">销假人</span></td>
+        </tr>
+
+        <tr style="background-color: #F3F3F4;">
+            <td style="border-bottom: none;"><span class="spanLeft bottomLeft">目的地</span></td>
+        </tr>
+        <tr>
+            <td valign="top" style="height: 102px;"><span id="dPlace" class="spanRight">广东高明</span></td>
+        </tr>
+
+        <tr style="background-color: #F3F3F4;">
+            <td style="border-bottom: none;"><span class="spanLeft bottomLeft">请假理由</span></td>
+        </tr>
+        <tr>
+            <td valign="top" style="height: 102px;"><span id="dPS" class="spanRight">与二三好友出校游玩</span></td>
+        </tr>
+
+        <tr style="background-color: #F3F3F4;">
+            <td style="border-bottom: none;"><span class="spanLeft bottomLeft">销假说明</span></td>
+        </tr>
+        <tr>
+            <td valign="top" style="height: 102px;"><span class="spanRight">--</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="spanLeft">销假材料证明</span></td>
+        </tr>
+        <tr style="background-color: #F3F3F4;">
+            <td><span class="spanLeft bottomLeft">审核日志</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div style="float: left;line-height: 23px;">
+                    <span style="font-size: 14px; color: #333333;">班主任批准</span><br>
+                    <span style="font-size:12px; color:#878888;">李正淳</span>
+                </div>
+                <span class="spanRight">通过 注意安全，戴好口罩。</span></td>
+        </tr>
+        <tr style="background-color: #F3F3F4;">
+            <td><span class="spanLeft bottomLeft">审核流程</span></td>
+        </tr>
+
+        <tr>
+            <td style="height: 144px;">
+                <div style="float: left;width: 70px;height: 100%; line-height: 23px;">
+                    <span id="dPostTime" class="spanLeft" style="font-size: 8px;margin-top: 14px;">2021-01-12<br/>11:32:44</span>
+                    <span id="dTeacherTime" class="spanLeft" style="font-size: 8px;margin-top: 14px;">2021-01-12<br/>12:27:25</span>
+                </div>
+                <img style="float: left; height: 100%;" src="img.png" alt="">
+            </td>
+        </tr>
+    </table>
+
+    <script src="indexJS.js"></script>
 </body>
 </html>
